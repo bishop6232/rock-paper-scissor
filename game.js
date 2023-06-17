@@ -24,7 +24,7 @@ else if(computerMove ==='paper'){
 else if(computerMove === 'scissors'){
     result = 'you win!';
 }
-alert(`you selected rock, computer selected ${computerMove}, result: ${result}`)
+alert(`you selected: rock, computer selected: ${computerMove}, result: ${result}`)
 }
 
 function paper(){
@@ -51,7 +51,7 @@ function paper(){
     if(computerMove === 'scissors'){
         result = 'you lose!'
     }
-    alert(`you selcted paper, computer selected ${computerMove}, result: ${result}`);
+    alert(`you selected: paper, computer selected: ${computerMove}, result: ${result}`);
 }
 
 function scissors(){
@@ -79,5 +79,5 @@ function scissors(){
     else if(computerMove === 'scissors'){
         result = 'tie!';
     }
-    alert(`you selected scissors, computer selected ${computerMove}, result: ${result}`);
+    alert(`you selected: scissors, computer selected: ${computerMove}, result: ${result}`);
 }
