@@ -57,7 +57,13 @@ wins:${score.wins}, losses:${score.losses}, ties:${score.ties}`);
 
 function paper(){
     let score = JSON.parse(localStorage.getItem('score'))
-
+    if(!score){
+        score = {
+            wins: 0,
+            losses: 0,
+            ties: 0
+        }
+    }
     
     const randomNumber = Math.random();
     
@@ -107,7 +113,13 @@ wins:${score.wins}, losses:${score.losses}, ties:${score.ties}`);
 
 function scissors(){
     let score = JSON.parse(localStorage.getItem('score'))
-
+    if(!score){
+        score = {
+            wins: 0,
+            losses: 0,
+            ties: 0
+        }
+    }
     
     const randomNumber = Math.random();
     
