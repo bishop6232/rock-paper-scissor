@@ -1,4 +1,14 @@
+
 function rock(){
+    let score = JSON.parse(localStorage.getItem('score'))
+    if(!score){
+        score = {
+            wins: 0,
+            losses: 0,
+            ties: 0
+        }
+    }
+
 
 const randomNumber = Math.random();
 let computerMove;
@@ -24,10 +34,30 @@ else if(computerMove ==='paper'){
 else if(computerMove === 'scissors'){
     result = 'you win!';
 }
-alert(`you selected: rock, computer selected: ${computerMove}, result: ${result}`)
+
+
+if(result === 'you win!'){
+    score.wins += 1;
+}
+else if(result === 'you lose!'){
+    score.losses += 1;
+}
+else if(result === 'tie!'){
+    score.ties += 1;
+}
+
+localStorage.setItem('score',JSON.stringify(score));
+
+alert(`you selected rock, computer selected ${computerMove}, ${result}
+wins:${score.wins}, losses:${score.losses}, ties:${score.ties}`);
+
+
+
 }
 
 function paper(){
+    let score = JSON.parse(localStorage.getItem('score'))
+
     
     const randomNumber = Math.random();
     
@@ -51,10 +81,33 @@ function paper(){
     if(computerMove === 'scissors'){
         result = 'you lose!'
     }
-    alert(`you selected: paper, computer selected: ${computerMove}, result: ${result}`);
+
+
+
+    if(result === 'you win!'){
+        score.wins += 1;
+    }
+    else if(result === 'you lose!'){
+        score.losses += 1;
+    }
+    else if(result === 'tie!'){
+        score.ties += 1;
+    }
+    localStorage.setItem('score',JSON.stringify(score));
+
+    alert(`you selected rock, computer selected ${computerMove}, ${result}
+wins:${score.wins}, losses:${score.losses}, ties:${score.ties}`);
+
+
 }
 
+
+   
+
+
 function scissors(){
+    let score = JSON.parse(localStorage.getItem('score'))
+
     
     const randomNumber = Math.random();
     
@@ -79,5 +132,27 @@ function scissors(){
     else if(computerMove === 'scissors'){
         result = 'tie!';
     }
-    alert(`you selected: scissors, computer selected: ${computerMove}, result: ${result}`);
+    
+    
+    
+    if(result === 'you win!'){
+        score.wins += 1;
+    }
+    else if(result === 'you lose!'){
+        score.losses += 1;
+    }
+    else if(result === 'tie!'){
+        score.ties += 1;
+    }
+    localStorage.setItem('score',JSON.stringify(score));
+
+    alert(`you selected rock, computer selected ${computerMove}, ${result}
+    wins:${score.wins}, losses:${score.losses}, ties:${score.ties}`);
+}
+function reset(){
+    let score = JSON.parse(localStorage.getItem('score'))
+    score.losses = 0;
+    score.wins = 0;
+    score.ties = 0;
+    localStorage.removeItem('score');
 }
